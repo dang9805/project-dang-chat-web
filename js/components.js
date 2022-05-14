@@ -112,7 +112,7 @@ components.chatScreen = `
                         <div id="overlay"></div>
                     </div>
 
-                    <div id="sign-out" class="cursor" style="border: solid 1px black; background-color: rgb(207, 23, 23); font-size: 10px; width: fit-content;height: 30px; line-height: 30px; border-radius: 5px; padding: 1px">
+                    <div id="sign-out" class="cursor" style="border: solid 1px black; background-color: rgb(207, 23, 23); font-size: 10px; width: fit-content;height: fit-content; line-height: 30px; border-radius: 5px; padding: 1px">
                         Đăng xuất
                     </div>
                 </div>
