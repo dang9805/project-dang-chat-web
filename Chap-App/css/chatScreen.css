@@ -3,21 +3,44 @@
     height: 100vh;
     background-size: cover;
 } */
-.chat-container .chat-header h1{
+
+/* ---------------------phần header */
+/* .chat-container .chat-header h1{
     color: #ffffff;
     text-align: center;
     padding-top: 30px;
     font-size: 50px;
-}
+} */
 
+/* .header .side-bar{
+    position: absolute;
+    color: black;
+    display: none;
+} */
+
+/* ------------------------------------phần đựng chat không bao gồm header */
 .chat-container{
     height: 100vh;
 }
+
+/* --------------------------------------phần main ở dưới */
 .chat-container .main{
-    height: calc(100% - 64px);
+    /* height: calc(100% - 64px); */
+    height: 100%;
     display: flex;
     flex-direction: row;
     /* phai space no ra neu khong la code css se khong chay */
+}
+
+
+/* --------------------------------------phần để chat */
+
+.chat-container .main .conversation-detail{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* flex-grow: 1; */
+    width: 85%;
 }
 
 .main .conversation-detail .conversation-header{
@@ -26,24 +49,8 @@
     text-align: center;
     font-size: 32px;
     border-bottom: 0.5px solid #cfcccc;
-    display: flex;
-    justify-content: flex-start;
-    padding: 10px;
-}
-.header .side-bar{
-    position: absolute;
-    color: black;
-    display: none;
 }
 
-
-.chat-container .main .conversation-detail{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    /* flex-grow: 1; */
-    width: 70%;
-}
 
  .conversation-detail .list-messages {
     flex-grow: 1;
@@ -63,6 +70,7 @@
 #send-messages-form{
     position: relative;
 }
+
 #send-messages-form button{
     position: absolute;
     right: 15px;
@@ -71,7 +79,6 @@
     background: none;
     color: blue;
     font-size: 24px;
-
 }
 #send-messages-form button:hover {opacity: 0.6}
 #send-messages-form button:active {transform: scale(1.2); }
@@ -107,6 +114,7 @@
     display: inline-block;
 }
 
+/* --------------------------------------------phần list conversation */
 .chat-container .aside-left{
     width: 15%;
     height: 100%;
@@ -120,9 +128,73 @@
     border-bottom: 1px solid #dbdbdb;
     text-align: center;
 }
+
+.chat-container .list-conversation{
+    overflow-y: auto;
+    height: calc(100% - 64px - 64px);
+
+}
+
+
+/* ------------------------------------setting box */
+.chat-container .setting-page{
+    width: 100%;
+    height: 64px;
+    border: none;
+    border-top: 1px solid #dbdbdb;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 10px;
+}
+
+#dark-mode{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: flex-start;
+}
+
+#change-font-size{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: flex-start;
+}
+
+ #change-font-size input{
+    width: 150px;
+    height: 25px;
+    border-radius: 5px;
+ }
+
+ #change-font-size button{
+     width: inherit;
+     height: 25px;
+     border-radius: 5px;
+     margin-left: 10px;
+ }
+
+
+
+.change {
+    cursor: pointer;
+    border: 1px solid #555;
+    border-radius: 40%;
+    width: inherit;
+    height: inherit;
+    text-align: center;
+    padding: 3px;
+    margin-left: 8px;
+}
+
+
+
 .chat-container .list-conversation .conversation{
     padding: 0px 10px;
     position: relative;
+    border-bottom: 1px solid #222;
 }
 .chat-container .conversation .notification{
     width: 12px;
@@ -152,7 +224,6 @@
     padding: 10px;
     border-left: 1px solid #dbdbdb;
     width: 15%;
-    max-width: 15%;
     /* overflow: hidden; */
 }
 .chat-container .aside-right .user{
@@ -170,6 +241,8 @@
     background: #ffffff;
     width: 30% !important;
 }
+
+
 @media screen and (max-width: 768px){
     .aside-right{
         display: none;
@@ -181,8 +254,10 @@
         display: flex;
         border-radius: 50%;
         border: 1px solid #dbdbdb;
-        width: 32px;
-        height: 32px;
+        width: inherit;
+        height: inherit;
+        max-width: 50px;
+        max-height: 50px;
         align-items: center; 
         justify-content: center;
         margin-bottom: 10px;
@@ -200,15 +275,6 @@
         top: 23px!important; 
         /* khi bị không cho ghi đè thuộc tính ( tính theo điểm CSS: anh Khiêm nói) -> ta sử dụng !important để ưu tiên thứ tự tính theo điểm */
     }
-
-    .chat-container .main .conversation-detail{
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        /* flex-grow: 1; */
-        width: 85%;
-    }
-    
 }
 
 .move-side-bar{

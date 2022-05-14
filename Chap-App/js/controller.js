@@ -4,7 +4,7 @@ const controller = {};
 controller.register = (data) => {
     if (data.firstName.trim() === "") {
         document.getElementById("first-name-error").
-            innerText = '*Please input first name';
+            innerText = '*Vui lòng nhập tên của bạn';
     }
     else {
         document.getElementById("first-name-error").
@@ -12,7 +12,7 @@ controller.register = (data) => {
     }
     if (data.lastName.trim() === "") {
         document.getElementById("last-name-error").
-            innerText = `*Please input last name`
+            innerText = `*Vui lòng nhập họ của bạn`
     }
     else {
         document.getElementById("last-name-error").
@@ -20,7 +20,7 @@ controller.register = (data) => {
     }
     if (data.email.trim() === "") {
         document.getElementById("email-error").
-            innerText = `*Please input email`
+            innerText = `*Vui lòng nhập email của bạn`
     }
     else {
         document.getElementById("email-error").
@@ -28,7 +28,7 @@ controller.register = (data) => {
     }
     if (data.password === "") {
         document.getElementById("password-error").
-            innerText = `*Please type password`
+            innerText = `*Vui lòng nhập mật khẩu`
     }
     else {
         document.getElementById("password-error").
@@ -36,7 +36,7 @@ controller.register = (data) => {
     }
     if (data.confirmPassword === "") {
         document.getElementById("confirm-password-error").
-            innerText = `*Please confirm password`
+            innerText = `*Vui lòng xác nhận lại mật khẩu`
     }
     else {
         document.getElementById("confirm-password-error").
@@ -46,7 +46,7 @@ controller.register = (data) => {
 
     ////// confirm password: toan tu confirmpassword    
     data.password !== data.confirmPassword ? document.getElementById("confirm-password-error").
-        innerText = 'Confirm password is error' : document.getElementById("confirm-password-error").
+        innerText = 'Mật khẩu không chính xác' : document.getElementById("confirm-password-error").
             innerText = '';
 
     /////////////// tạo user: 
@@ -63,7 +63,7 @@ controller.register = (data) => {
 controller.login = (dataLogin) => {
     if (dataLogin.email.trim() === "") {
         document.getElementById("email-error").
-            innerText = `*Please input email`
+            innerText = `*Vui lòng nhập email`
     }
     else {
         document.getElementById("email-error").
@@ -71,7 +71,7 @@ controller.login = (dataLogin) => {
     }
     if (dataLogin.password === "") {
         document.getElementById("password-error").
-            innerText = `*Please type password`
+            innerText = `*Vui lòng nhập mật khẩu`
     }
     else {
         document.getElementById("password-error").
@@ -87,12 +87,12 @@ controller.login = (dataLogin) => {
 
 controller.createConversationScreen = (newConversation) => { // nhận vào 1 giá trị data ( là object bắn ra từ conversation)
     if (newConversation.conversationTitle.trim() === '') {
-        document.getElementById('conversation-name-error').innerText = 'Please input conversation Name...'
+        document.getElementById('conversation-name-error').innerText = 'Vui lòng nhập tên đoạn chat'
     } else {
         document.getElementById('conversation-name-error').innerText = ''
     }
     if (newConversation.conversationEmail.trim() === '') {
-        document.getElementById('conversation-email-error').innerText = 'Please inpput conversation Email...'
+        document.getElementById('conversation-email-error').innerText = 'Vui lòng nhập email bạn bè'
     } else {
         document.getElementById('conversation-email-error').innerText = ''
     }
@@ -111,7 +111,7 @@ controller.createConversationScreen = (newConversation) => { // nhận vào 1 gi
 
 controller.addUserConversation = (user) => {
     if (user.trim() === "") {
-        view.setErrorMessage('add-user-email-error', 'please input friend email');
+        view.setErrorMessage('add-user-email-error', 'Vui lòng nhập email bạn bè');
     } else {
         view.setErrorMessage('add-user-email-error', "");
     }

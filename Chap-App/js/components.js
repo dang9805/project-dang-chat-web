@@ -6,38 +6,38 @@ components.registerScreen = `
 <div class="register-container">
         <div class="aside-right">
             <div class="header">
-                <h3 style="color: #ffffff;">ĐĂNG CHAT</h3>
+                <h3 style="color: #ffffff;">Đăng web chat</h3>
             </div>
 
             <form id="register-form">
                 <div class="input-name-wrapper">
                     <div class="input-wrapper">
-                        <input type="text" name="firstName" placeholder="First-name..">
+                        <input type="text" name="firstName" placeholder="Tên của bạn">
                         <div class="error" id="first-name-error"></div>
                     </div>
                     <div class="input-wrapper">
-                        <input type="text" name="lastName" placeholder="Last-name..">
+                        <input type="text" name="lastName" placeholder="Họ của bạn">
                         <div class="error" id="last-name-error"></div>
                     </div>
                 </div>
                 <div class="input-wrapper">
-                    <input type="text" name="email" placeholder="Email..">
+                    <input type="text" name="email" placeholder="Email">
                     <div class="error" id="email-error"></div>
                 </div>
                 <div class="input-wrapper">
-                    <input type="password" name="password" placeholder="Password..">
+                    <input type="password" name="password" placeholder="Mật khẩu">
                     <div class="error" id="password-error"></div>
                 </div>
                 <div class="input-wrapper">
-                    <input type="password" name="confirmPassword" placeholder="Confirm password...">
+                    <input type="password" name="confirmPassword" placeholder="Xác nhận lại mật khẩu">
                     <div class="error" id="confirm-password-error"></div>
                 </div>
                 <div class="form-action">
                     <span class = "cursor" id="redirect-to-login">
-                        Already have an account? Login
+                        Nếu đã có sẵn tài khoản. Đăng nhập tại đây
                     </span>
                     <button class="btn" type="submit">
-                        Register
+                        Đăng ký
                     </button>
                 </div>
             </form>
@@ -48,25 +48,25 @@ components.loginScreen = `
 <div class="login-container">
 <div class="aside-right">
     <div class="header">
-        <h3 id = "loginScreen-content" style="color: white;">ĐĂNG CHAT</h3>
+        <h3 id = "loginScreen-content" style="color: white;">Đăng web chat</h3>
     </div>
     
     <form id="login-form">
         <div class="input-wrapper">
-            <input type="text" name="email" placeholder="Email..">
+            <input type="text" name="email" placeholder="Email">
             <div class="error" id="email-error"></div>
         </div>
         <div class="input-wrapper">
-            <input type="password" name="password" placeholder="Password..">
+            <input type="password" name="password" placeholder="Mật khẩu">
             <div class="error" id="password-error"></div>
         </div>
 
         <div class="form-action">
             <span class = "cursor" id="redirect-to-register">
-                Don't have an account? Register
+                Nếu không có tài khoản. Đăng ký tại đây
             </span>
             <button id = "redirect-to-chatScreen" class="btn" type="submit">
-                Login
+                Đăng nhập
             </button>
         </div>
     </form>
@@ -77,92 +77,110 @@ components.loginScreen = `
 
 components.chatScreen = `
 <div class="chat-container">
-    <div class="header">
-        ĐĂNG CHAT
+        <div class="main">
+            <div class="aside-left">
+                <div class="create-conversation">
+                    <button class="btn">
+                        Tạo thêm đoạn chat
+                    </button>
+                </div>
+                <div class="list-conversation">
+                    
+                </div>
 
-        <div class = "side-bar">
-            <i class="fas fa-bars" aria-hidden="true"></i>
-        </div> 
+                <div class="setting-page">
+                    <div>
+                        <button data-modal-target="#modal" style="border-radius: 5px; height: 30px;font-size: 10px; border: solid 1px black;background-color: rgb(207, 23, 23); padding: 1px">Cài đặt</button>
+                        <div class="modal" id="modal">
+                            <div class="modal-header">
+                                <div class="title">Bảng cài đặt</div>
+                                <button data-close-button class="close-button">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <div id="dark-mode" style="margin-bottom: 10px">
+                                    <p>Chế độ buổi tối:</p>
+                                    <span class="change">Tắt</span>
+                                </div>
 
-        <div id="sign-out" class="cursor" style="border: none; background-color: rgb(207, 23, 23); position:absolute; top: 15px; right: 15px; font-size: 20px;width: fit-content;height: 30px; line-height: 30px; border-radius: 5px;">Sign-out</div>
-    </div>
+                                <div id="change-font-size">                                 
+                                    <input type="number" id="font-size-value" placeholder = "Chỉnh cỡ chữ">
+                                    <button id="change-font-size">Chuyển đổi</button>
+                                    <p id="font-size-now"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="overlay"></div>
+                    </div>
 
-    <div class="main">
-        <div class="aside-left">
-            <div class="create-conversation">
-                <button class="btn">
-                    + New conversation
-                </button>
-            </div>
-            <div class="list-conversation">
-
-            </div>
-        </div>
-       
-        <div class="conversation-detail">
-            <div class="conversation-header">
-                First conversation
-            </div>
-            <div class="list-messages">
-                <div class="message-container mine">
-                    <div class="content">
-                        hello world
+                    <div id="sign-out" class="cursor" style="border: solid 1px black; background-color: rgb(207, 23, 23); font-size: 10px; width: fit-content;height: 30px; line-height: 30px; border-radius: 5px; padding: 1px">
+                        Đăng xuất
                     </div>
                 </div>
+            </div>
+            
+            <div class="conversation-detail">
+                <div class="conversation-header">
+                    First conversation
+                </div>
+                <div class="list-messages">
+                    <div class="message-container mine">
+                        <div class="content">
+                            hello world
+                        </div>
+                    </div>
 
-                <div class="message-container their">
-                    <div class="owner">
-                        abcxyz@gmail.com
+                    <div class="message-container their">
+                        <div class="owner">
+                            abcxyz@gmail.com
+                        </div>
+                        <div class="content">
+                            hiiiiiiiiiiiiiiii
+                        </div>
                     </div>
-                    <div class="content">
-                        hiiiiiiiiiiiiiiii
+                </div>
+                <form id="send-messages-form">
+                    <div class="input-wrapper">
+                        <input type="text" name="message" placeholder="Nhập tin nhắn" id="chat-messange-input">
                     </div>
-                </div>
+                    <button type="submit">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
             </div>
-            <form id="send-messages-form">
-                <div class="input-wrapper">
-                    <input type="text" name="message" placeholder="Type a message">
+            <div class="aside-right">
+                <div class="list-users">
                 </div>
-                <button type="submit">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
-            </form>
-        </div>
-        
-        <div class="aside-right">
-            <div class="list-users">
+                <form id = "add-user-form">
+                    <div class="input-wrapper">
+                        <input type="text" placeholder="Nhập email bạn bè" name="email">
+                        <div class="error" id="add-user-email-error"></div>
+                    </div>
+                    <button class="btn" type="submit">Lưu</button>
+                </form>
             </div>
-            <form id = "add-user-form">
-                <div class="input-wrapper">
-                    <input type="text" placeholder="Input friend email" name="email">
-                    <div class="error" id="add-user-email-error"></div>
-                </div>
-                <button class="btn" type="submit">Save</button>
-            </form>
         </div>
-    </div>
 </div>
 `;
 components.createConversation = `
  <div class="create-conversation-container">
         <div class="header">
-        ĐĂNG CHAT
+            Đăng web chat
         </div>
         <div class="main" style="padding: 50px 30%">
             <form id="create-conversation-form">
                 <div>
-                    Create a new conversation
+                    Tạo đoạn chat
                 </div>
                 <div class="input-wrapper">
-                    <input type="text" placeholder="Conversation name" name="conversationTitle">
+                    <input type="text" placeholder="Tên đoạn chat" name="conversationTitle">
                     <div class="error" id="conversation-name-error"></div>
                 </div>
                 <div class="input-wrapper">
-                    <input type="text" placeholder="Friend name" name="conversationEmail">
+                    <input type="text" placeholder="Email bạn bè" name="conversationEmail">
                     <div class="error" id="conversation-email-error"></div>
                 </div>
-                <button class="btn" type="submit">Save</button>
-                <button class="btn btn-light" type="button" id="back-to-chat">Cancel</button>
+                <button class="btn" type="submit">Lưu</button>
+                <button class="btn btn-light" type="button" id="back-to-chat">Hủy</button>
             </form>
         </div>
     </div>

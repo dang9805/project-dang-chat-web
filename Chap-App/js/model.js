@@ -17,7 +17,7 @@ model.register = async (data) => {
             displayName: data.firstName + " " + data.lastName,
         });
         firebase.auth().currentUser.sendEmailVerification();
-        alert("the email has been registed, please check your email");
+        alert("Email đã được đăng ký. Vui lòng check hòm thư gmail của bạn");
         view.setActiveScreen('loginScreen');
     } catch (err) { // no se ban error qua cai catch nay
         console.log(err);

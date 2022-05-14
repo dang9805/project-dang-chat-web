@@ -46,3 +46,9 @@
     background-color: unset;
     color: #333333;
 }
+
+.dark{
+    background-color: #222;
+    color: #e6e6e6;
+    color: white;
+}

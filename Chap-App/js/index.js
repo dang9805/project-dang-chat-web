@@ -8,12 +8,22 @@ const init = () => {
 
   /////////////////
   let firebaseConfig = {
-    apiKey: "AIzaSyC3Im-z6R-P0I0-CIeKLihsv4uj-b_GuLM",
-    authDomain: "project-chat-web.firebaseapp.com",
-    projectId: "project-chat-web",
-    storageBucket: "project-chat-web.appspot.com",
-    messagingSenderId: "511136054736",
-    appId: "1:511136054736:web:7754cf70b72dd1def38dd5"
+    // apiKey: "AIzaSyAiS9K-gUxihQtCR1mHMN10xmvYqFmlHtE",
+    // authDomain: "chat-app-7371e.firebaseapp.com",
+    // databaseURL: "https://chat-app-7371e.firebaseio.com",
+    // projectId: "chat-app-7371e",
+    // storageBucket: "chat-app-7371e.appspot.com",
+    // messagingSenderId: "710788543449",
+    // appId: "1:710788543449:web:131d1989b5a6c736421fc8",
+    // measurementId: "G-5M3E942D66"
+    apiKey: "AIzaSyAcok6UD_fzs8ISigoNI3_kwZBLe4XZRt4",
+    authDomain: "test-chat-web-59cab.firebaseapp.com",
+    databaseURL: "https://test-chat-web-59cab-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "test-chat-web-59cab",
+    storageBucket: "test-chat-web-59cab.appspot.com",
+    messagingSenderId: "659470091901",
+    appId: "1:659470091901:web:558c429ef0e964eec49314",
+    measurementId: "G-BX4KKLGT0J"
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);

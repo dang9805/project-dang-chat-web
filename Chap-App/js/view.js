@@ -42,8 +42,11 @@ view.setActiveScreen = (screenName, fromCreateConversation = false) => {
             });
             break;
         ///////////// màn hình chatScreen
+
+
         case `chatScreen`:
             document.getElementById("app").innerHTML = components.chatScreen;
+
 
             // document.getElementById("redirect-to-chatScreen").
             //     addEventListener("submit", () => {
@@ -79,6 +82,70 @@ view.setActiveScreen = (screenName, fromCreateConversation = false) => {
                 view.showConversation();
                 view.showCurrentConversation();
             }
+            
+            // bật pop-up setting
+            const openModalButtons = document.querySelectorAll('[data-modal-target]')
+            const closeModalButtons = document.querySelectorAll('[data-close-button]')
+            const overlay = document.getElementById('overlay')
+
+            openModalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = document.querySelector(button.dataset.modalTarget)
+                openModal(modal)
+            })
+            })
+
+            overlay.addEventListener('click', () => {
+            const modals = document.querySelectorAll('.modal.active')
+            modals.forEach(modal => {
+                closeModal(modal)
+            })
+            })
+
+            closeModalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = button.closest('.modal')
+                closeModal(modal)
+            })
+            })
+
+            function openModal(modal) {
+            if (modal == null) return
+            modal.classList.add('active')
+            overlay.classList.add('active')
+            }
+
+            function closeModal(modal) {
+            if (modal == null) return
+            modal.classList.remove('active')
+            overlay.classList.remove('active')
+            }
+
+            // dark mode
+            $( ".change" ).on("click", function() {
+                if( $( "body" ).hasClass( "dark" )) {
+                    $( "body" ).removeClass( "dark" );
+                    $( ".change" ).text( "Tắt" );
+                    document.getElementById('modal').style.backgroundColor = "white"
+                    document.getElementById('modal').style.color = "black"                    
+                } else {
+                    $( "body" ).addClass( "dark" );
+                    $( ".change" ).text( "Bật" );
+                    chat-messange-input
+                    document.getElementById('modal').style.backgroundColor = "#222"
+                    document.getElementById('modal').style.color = "white"
+                }
+            });
+
+            // change font size
+            document.getElementById('change-font-size').addEventListener("click",() => {                
+                let fontSizeValue = document.getElementById("font-size-value").value
+                if (fontSizeValue <= 40){
+                // $( "body" ).style.fontSize = fontSizeValue.toString() + "px";
+                    document.body.style.fontSize = fontSizeValue.toString() + "px";
+                } 
+            })
+
             // Log out
             const signOutButton = document.getElementById("sign-out");
             signOutButton.addEventListener("click", (e) => {
@@ -107,7 +174,8 @@ view.setActiveScreen = (screenName, fromCreateConversation = false) => {
                     document.querySelector(".aside-right").classList.toggle('show'); // no se check trong nay co class show chua( kieu bot buoc check if else);
                     document.querySelector(".side-bar").classList.toggle('move-side-bar');
                 });
-            break;
+        break;
+
         /////////// man hinh createConversation
         case `createConversation`: // man hinh createConversation
             document.getElementById("app").innerHTML = components.createConversation;
@@ -202,7 +270,7 @@ view.addConversation = (conversation) => {  // conversation truyền vào từ l
     }
     conversationWrapper.innerHTML = `
     <div class = "conversation-title">${conversation.title}</div>
-    <div class = "conversation-num-user">${conversation.users.length} users</div>   
+    <div class = "conversation-num-user">${conversation.users.length} thành viên</div>   
     <div class = "notification"></div>
     `;
     ////
