@@ -146,7 +146,6 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    padding-left: 10px;
 }
 
 #dark-mode{
@@ -215,6 +214,7 @@
     overflow: hidden;
 }
 #sign-out{
+    border: solid 1px black; background-color: rgb(207, 23, 23); font-size: 10px; width: fit-content;height: fit-content; line-height: 30px; border-radius: 5px; padding: 1px;
     transition: all 4s;
 }
 #sign-out:active{
@@ -279,4 +279,11 @@
 
 .move-side-bar{
     right: 31%;
+}
+
+.aside-left #sign-out{
+    height: 30px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
 }

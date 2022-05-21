@@ -292,7 +292,6 @@ view.addConversation = (conversation) => {  // conversation truyền vào từ l
         }
         else {
             conversationWrapper.firstElementChild.innerText = conversation.title; /// firstElementChild chi ap dung voi con dau va con cuoi
-            document.querySelector(".create-conversation .btn").innerText = "+New Conversation";
         }
     })
     ////
